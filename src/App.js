@@ -1,25 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import "@ant-design/flowchart/dist/index.css";
+import SampleMultiLine from './components/baseline';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SampleMultiLine />
     </div>
   );
 }
 
 export default App;
+
