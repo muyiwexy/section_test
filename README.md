@@ -34,7 +34,7 @@ Together with 'react-dom' and 'react', antdesign flowchart also relies on 'antd 
 - yarn add @ant-design/icons
 
 Your package.json in general should have the following files availabe in it
-
+```
 "dependencies": {
     "@ant-design/icons": "^4.6.0",
     "antd": "^4.6.3",
@@ -42,7 +42,7 @@ Your package.json in general should have the following files availabe in it
     "react": ">=16.8.4",
     "react-dom": ">=16.8.4"
   }
-
+```
 
 Then we head on next to import the library. We can use import or require to start.
 
@@ -61,7 +61,7 @@ Flowcharts
 
 for our flowchart we will create a react component in a new file called sampleFlowChart.js. This file will house our flowchart component that will hold the data set for our codes.
 
-
+```
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Flowchart } from '@ant-design/charts';
@@ -75,11 +75,11 @@ const SampleFlowchart = () => {
 };
 
 export default SampleFlowchart;
-
+```
 
 in the code snippet above we are importing react, react-dom and Flowchart from the ant design chart library.
 Next we create our SampleFlowChart copmonent and export it as the default using react functional component rrendering mechanism.
-
+```
 <div style={{ height: 600 }}>
       <Flowchart
         onSave={(d) => {
@@ -119,7 +119,7 @@ Next we create our SampleFlowChart copmonent and export it as the default using 
       />
 </div>
 
-
+```
 Insrting the code above will display our flowchart dashboard populated with the necessary widgets we need to create a flowchart daigram for any application flow. The widgets present ranges from (parralelogram, to Oval, down to daimond shape for decision making).
 
 Since antd is a chinese based framework some of the text on the interface will be written in chinese, do not be alarmed, there's a way around it. What you can do is to install google translate plugin extension for free in your browser and specify google to translate the website and your good to go with the text transformed to your language of choice.
@@ -129,14 +129,14 @@ You can drag widgets from the left panel where there are housed and drop them in
 Explaining the code snippet
 
 The FlowChart widget creates the panel dashbord that gets displayed on the browser
-
+```
 onSave={(d) => {
     console.log(d, JSON.stringify(d));
 }}
-
+````
 This logs to the console the data set generated from your designs anytime you save your updates. This dataset can be shared to regenerate the flowchart map with anyone.
 
-
+```
 toolbarPanelProps={{
           position: {
             top: 0,
@@ -144,10 +144,10 @@ toolbarPanelProps={{
             right: 0,
   },
 }}
-
+```
 
 This sets the position for the top bar of the interface. By changing the values you can chage the position of the top bar. In our application we have set the valu to be house on the top of our application screen
-
+```
 scaleToolbarPanelProps={{
           layout: 'horizontal',
           position: {
@@ -158,9 +158,9 @@ scaleToolbarPanelProps={{
             background: 'transparent',
           },
         }}
-
+```
 This sets the positioning of the screen fit, fullscreen, zoom in and zoom out features placed on the top right of the screen. by changing the values we can specify where we want its postion to be on the dashboard.
-
+```
 canvasProps={{
           position: {
             top: 40,
@@ -169,16 +169,16 @@ canvasProps={{
             bottom: 0,
           },
         }}
-
+```
 This handles the positioning of the central canvas on the screen where the central canvas layer to hold widgets dropped is displayed.
-
+```
 nodePanelProps={{
           position: { width: 160, top: 40, bottom: 0, left: 0 },
         }}
         detailPanelProps={{
           position: { width: 200, top: 40, bottom: 0, right: 0 },
         }}
-
+```
 These handles panels on both sides of the screen. THe left panel is handled by the nodepanelprops which houses the nodes and the right is used to specify details about the properties of the widget currently in focus.
 
 
@@ -186,7 +186,7 @@ There is a default data property of the flowchart widget. This data proporty tak
 
 Hence the final code will be 
 
-
+```
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Flowchart } from '@ant-design/charts';
@@ -236,7 +236,7 @@ const SampleFlowchart = () => {
 export default SampleFlowchart;
 
 
-
+```
 
 
 
@@ -244,7 +244,7 @@ export default SampleFlowchart;
 MultiLine
 
 For our multiline we will create a new file to house it as a component. call the file sampleMultiLine
-
+```
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Line } from '@ant-design/charts';
@@ -396,12 +396,12 @@ const SampleMultiLine = () => {
   return <Line {...config} />;
 };
 export default SampleMultiLine;
-
+```
 
 Explainer code.
 
 The code above imports react and react-dom which are both required. Also imported is the antdesign Line provided by the antdesign chart library.
-
+```
 const SampleMultiLine = () => {
   return (
       <>
@@ -409,11 +409,11 @@ const SampleMultiLine = () => {
   );
 };
 export default SampleMultiLine;
-
+```
 We define our component SampleMultiLine and export it as the default component for our file. This is imported and utilized in the App.js file using the snippet below
-
+``
 <SampleMultiLine />
-
+```
 there are no props so none is passed to it.
 
 
@@ -421,7 +421,7 @@ there are no props so none is passed to it.
 We define our data set as an array, for each unique line we have a single element representing its for that particular year.
 
 
-
+```
   const config = {
     data,
     xField: 'year',
@@ -436,7 +436,7 @@ We define our data set as an array, for each unique line we have a single elemen
       },
     },
   };
-
+```
 The major piece of code is the one that describes the various configuration of out Multiline graph. The configuration variable is an object that takes in the dataset in a "data" property, the xField property takes a value that is a key in our dataset of which we want to be our x-axis data. similarly, the yField property takes a value that is a key in our dataset of which we want to be our y-axis data. 
 THe seriesField speciefies the field in our dataset we want to us as our line distiguisher. So for every different/unique value for the proerty "category" in our dataset the chart will create a new line to represent it in the chart.
 
